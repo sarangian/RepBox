@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from utils.selection import *
 import re
 import sys
