@@ -1,5 +1,5 @@
 {'HelitronScanner':'/usr/local/bin/HelitronScanner.jar'}
-{'miteFinder':'/Users/shelburkes/RepBox/bin/miteFinder/bin/miteFinder'}
+{'miteFinder':'/opt/RepBox/tools/miteFinder/bin/miteFinder'}
 {'RepeatMasker':'/opt/conda/envs/repbox/bin/RepeatMasker'}
 {'RepeatModeler':'/opt/conda/envs/repbox/bin//RepeatModeler'}
 {'RepeatClassifier':'/opt/conda/envs/repbox/bin/RepeatClassifier'}
