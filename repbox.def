@@ -1,0 +1,69 @@
+BootStrap: docker
+From: dfam/tetools:1.87
+
+%labels
+        Author:Aditya Narayan Sarangi
+%post
+   mkdir -p  storage scratch2 local_scratch
+   export DEBIAN_FRONTEND="noninteractive"
+   apt-get update -y
+   apt-get install -y build-essential curl git \
+   --no-install-recommends locales default-jre default-jdk curl build-essential software-properties-common make \
+   muscle bedtools emboss wget git unzip  
+   
+   cd /opt
+   git clone https://github.com/sarangian/RepBox.git
+   chmod 755 /opt/RepBox/main.py   
+   mv /opt/RepBox/included/included.zip /opt
+   unzip included.zip
+   rm included.zip
+
+   cd /opt
+   SINEscan=/opt/SINE_Scan-v1.1.1
+   cd ${SINEscan}
+   perl SINE_Scan_Installer.pl -d ${SINEscan} \
+   -a ${SINEscan}/SINE-FINDER.py \
+   -f /opt/rmblast/bin/makeblastdb \
+   -b /opt/rmblast/bin/blastn \
+   -c /opt/cd-hit/cd-hit-est \
+   -M /usr/bin/muscle \
+   -l /usr/bin/bedtools \
+   -e /usr/bin/stretcher \
+   -S ${SINEscan}/SINEBase/SineDatabase.fasta \
+   -R ${SINEscan}/RNABase/RNAsbase.fasta   
+
+  #MITFINDER
+  cd /opt
+  git clone https://github.com/jhu99/miteFinder.git
+  cd miteFinder
+  make
+
+  #REPEATMASKER
+  mv /opt/RepBase/RepBaseRepeatMaskerEdition-20181026.tar.gz /opt/RepeatMasker
+  cd /opt/RepeatMasker
+  tar xvf RepBaseRepeatMaskerEdition-20181026.tar.gz
+
+%environment
+  export LC_ALL=C
+  export LC_ALL=C.UTF-8 R
+  export PATH=$PATH:/opt/RepBox
+  export PATH=$PATH:/opt/RepBox/utils 
+  export PATH=$PATH:/opt/SINE_Scan-v1.1.1
+  export PATH=$PATH:/opt/miteFinder/bin
+  export PATH=$PATH:/opt/HelitronScanner_V1.0/HelitronScanner 
+  export PATH=$PATH:/opt/cd-hit 
+  export PATH=$PATH:/opt/coseg
+  export PATH=$PATH:/opt/genometools/bin
+  export PATH=$PATH:/opt/hmmer/bin
+  export PATH=$PATH:/opt/LTR_retriever
+  export PATH=$PATH:/opt/LTR_retriever/bin
+  export PATH=$PATH:/opt/mafft/bin
+  export PATH=$PATH:/opt/RECON/bin
+  export PATH=$PATH:/opt/RECON/scripts
+  export PATH=$PATH:/opt/NINJA/NINJA
+  export PATH=$PATH:/opt/RepeatMasker
+  export PATH=$PATH:/opt/RepeatModeler
+  export PATH=$PATH:/opt/RepeatScout
+  export PATH=$PATH:/opt/rmblast/bin
+  export LIBDIR=/opt/RepeatMasker/Libraries
+  export PATH=$PATH:/opt/ucsc_tools
