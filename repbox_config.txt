@@ -1,8 +1,8 @@
-{'HelitronScanner':'/opt/RepBox/tools/HelitronScanner/HelitronScanner.jar'}
-{'miteFinder':'/opt/RepBox/tools/miteFinder/bin/miteFinder'}
-{'RepeatMasker':'/opt/RepBox/tools/RepeatMasker/RepeatMasker'}
-{'RepeatModeler':'/opt/RepBox/tools/RepeatModeler-2.0.1/RepeatModeler'}
+{'HelitronScanner':'/opt/RepBox/bin/HelitronScanner_V1.0/HelitronScanner/HelitronScanner.jar'}
+{'miteFinder':'/opt/RepBox/bin/miteFinder/bin/miteFinder'}
+{'RepeatMasker':'/opt/RepBox/bin/RepeatMasker/RepeatMasker'}
+{'RepeatModeler':'/opt/RepBox/bin/RepeatModeler-2.0.1/RepeatModeler'}
 {'RepeatClassifier':'/opt/conda/envs/repbox/bin/RepeatClassifier'}
 {'BuildDatabase':'/opt/conda/envs/repbox/bin/BuildDatabase'}
-{'SineScan':'/opt/RepBox/tools/sinescan/SINE_Scan_process.pl'}
+{'SineScan':'/opt/RepBox/bin/SINE_Scan-v1.1.1/SINE_Scan_process.pl'}
 {'VSEARCH':'/opt/conda/envs/repbox/bin/vsearch'}
